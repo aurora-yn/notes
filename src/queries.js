@@ -8,7 +8,7 @@ export const GET_NOTES = gql`
     }
   }
   ${NOTE_FRAGMENT}
-`;
+`
 
 export const GET_NOTE = gql`
   query getNote($id: Int!) {
@@ -17,4 +17,4 @@ export const GET_NOTE = gql`
     }
   }
   ${NOTE_FRAGMENT}
-`;
+`

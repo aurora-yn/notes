@@ -6,7 +6,7 @@ Offline markdown note built with react and apollo
 ### Development
 
 ```
-yarn add apollo-cache-inmemory apollo-client graphql react-apollo styled-components styled-reset react-textarea-autosize graphql-tag apollo-link-state apollo-link react-router-dom
+yarn add apollo-cache-inmemory apollo-client graphql react-apollo styled-components styled-reset react-textarea-autosize graphql-tag apollo-link-state apollo-link react-router-dom react-markdown-renderer
 ```
 *Additional Extensions: Apollo Client Developer Tools (Unstable but not bad)
 
@@ -40,6 +40,7 @@ Query to check data on Apollo Dev Tools
 ```
 
 #### Apollo
+*Docs [https://www.apollographql.com/docs/]
 - Everything in Apollo becomes a link link HTTP Link, Error Link, State Link, etc.s
 - Apollo Boost requires HTTP, so this application hasn't built with Apollo Boost
 - Offline setting is on /src/apollo.js and /src/clientState.js
