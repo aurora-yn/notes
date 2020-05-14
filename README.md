@@ -1,14 +1,24 @@
 # Simple Notes
-Offline markdown note built with react and apollo
+Offline markdown note built with React and Apollo
 
 ---
 
 ### Development
 
 ```
-yarn add apollo-cache-inmemory apollo-client graphql react-apollo styled-components styled-reset react-textarea-autosize graphql-tag apollo-link-state apollo-link react-router-dom react-markdown-renderer
+yarn add apollo-cache-inmemory 
+         apollo-client graphql
+         apollo-link-state
+         apollo-link 
+         graphql-tag 
+         react-apollo 
+         react-router-dom 
+         react-markdown-renderer
+         styled-components 
+         styled-reset 
+         react-textarea-autosize 
 ```
-*Additional Extensions: Apollo Client Developer Tools (Unstable but not bad)
+*Additional Extensions: Apollo Client Developer Tools (Might be unstable)
 
 Add new data object on Apollo Dev Tools
 ```
