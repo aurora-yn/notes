@@ -1,32 +1,23 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import * as firebase from 'firebase'
 
 import Editor from '../../Components/Editor/Editor'
-
-const ADD_NOTE = gql`
-  mutation createNote($title: String!, $content: String!) @client {
-    createNote(title: $title, content: $content) {
-      id
-    }
-  }
-`
 
 export default class Add extends React.Component {
   render() {
     return (
-      <Mutation mutation={ADD_NOTE}>
-        {createNote => {
-          this.createNote = createNote
-          return <Editor onSave={this._onSave} />
-        }}
-      </Mutation>
+      <Editor 
+        onSave={this._onSave} 
+      />
     )
   }
-  _onSave = (title, content, id) => {
+  _onSave = (title, content) => {
     const { history : { push }} = this.props
     if (title !== '' && content !== '') {
-      this.createNote({variables: {title, content}})
+      firebase.database().ref('notes').push({
+        title: title,
+        content: content,
+      })
       push('/')
     }
   }
