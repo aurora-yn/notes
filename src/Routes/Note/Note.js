@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Query } from 'react-apollo'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import MarkdownRenderer from 'react-markdown-renderer'
 
-import * as firebase from 'firebase'
+import { GET_NOTE } from '../../queries'
 
 const TitleComponent = styled.div`
   display: flex;
@@ -16,45 +17,33 @@ const Title = styled.h1`
   margin: 0;
   padding: 0;
 `
-const ButtonContainer = styled.div`
-`
 const Button = styled.button`
-  margin-right = 30px;
 `
 
-const Note = props => {
-  const { match: { params: { id } } } = props
-  const [noteData, setNoteData] = useState({})
-  const data = firebase.database().ref(`notes/${id}`)
+export default class Note extends React.Component {
+  render() {
+    const { match: { params: { id } } } = this.props
 
-  useEffect(() => {
-    data.on('value', snapshot => {
-      setNoteData(snapshot.val())
-    })
-  }, [])
-
-  const deleteNote = () => {
-    const { history : { push }} = props
-    data.remove()
-    push('/')
+    return (
+      <Query query={GET_NOTE} variables={{ id }}>
+        {({ data }) => 
+          // { console.log(data); return null; }
+          data 
+          ? (
+            <>
+              <TitleComponent>
+                <Title>{data.note && data.note.title}</Title>
+                <Link to={`/edit/${data.note.id}`}>
+                  <Button>Edit</Button>
+                </Link>
+              </TitleComponent>
+              <MarkdownRenderer
+                markdown={data.note.content}
+              />
+            </>
+          ) : null
+        }
+      </Query>
+    )
   }
-
-  return (
-    <>
-      <TitleComponent>
-        <Title>{noteData.title}</Title>
-        <ButtonContainer>
-          <Link to={`/edit/${id}`} title={noteData.title}>
-            <Button>Edit</Button>
-          </Link>
-          <Button onClick={deleteNote}>Delete</Button>
-        </ButtonContainer>
-      </TitleComponent>
-      <MarkdownRenderer
-        markdown={noteData.content}
-      />
-    </>
-  )
 }
-
-export default Note

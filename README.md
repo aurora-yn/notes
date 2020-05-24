@@ -1,12 +1,5 @@
 # Simple Notes
-Simple markdown note built with React and Apollo
-- Currently deploy on firebase
-- Offline version [https://github.com/aurora-yn/notes/tree/2ccaec454cfde2733f359c860108622898545bf8]
-
-# TODO
-**Issus** 
-- Editing doesn't reload existing data
-   - Lost props, or Unchanged state at Editor component
+Offline markdown note built with React and Apollo
 
 ---
 
@@ -14,17 +7,16 @@ Simple markdown note built with React and Apollo
 
 ```
 yarn add apollo-cache-inmemory 
-         apollo-client 
+         apollo-client graphql
          apollo-link-state
          apollo-link 
-         graphql
          graphql-tag 
          react-apollo 
          react-router-dom 
          react-markdown-renderer
-         react-textarea-autosize 
          styled-components 
          styled-reset 
+         react-textarea-autosize 
 ```
 *Additional Extensions: Apollo Client Developer Tools (Might be unstable)
 
