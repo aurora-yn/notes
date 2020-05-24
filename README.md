@@ -4,13 +4,13 @@ Simple markdown note built with React and Apollo
 - Offline version [https://github.com/aurora-yn/notes/tree/2ccaec454cfde2733f359c860108622898545bf8]
 
 # TODO
-**Issus** 
+**Issues** 
 - Editing doesn't reload existing data
    - Lost props, or Unchanged state at Editor component
 
 ---
 
-### Development
+### Development (Offline)
 
 ```
 yarn add apollo-cache-inmemory 

@@ -12,7 +12,8 @@
 /build
 
 # firebase
-.firebase
+/.firebase
+.firebaserc
 firebase.json
 /src/firebase.js
 
